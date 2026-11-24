@@ -354,6 +354,32 @@
   .lb-nav.prev{left:-22px}.lb-nav.next{right:-22px}
   body.lightbox-open{overflow:hidden}
 
+  /* ---------- GİRİŞ EKRANI ---------- */
+  .intro-gate{
+    position:fixed;inset:0;z-index:100;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+    padding:24px;text-align:center;color:var(--white);
+    background:
+      radial-gradient(circle at 75% 22%, rgba(255,243,196,.9) 0, rgba(255,194,61,.7) 9%, rgba(255,194,61,0) 22%),
+      linear-gradient(180deg, #ff9a6b 0%, #ffc96b 30%, #6fc3d1 62%, var(--sea) 82%, var(--deep) 100%);
+    transition:opacity .7s ease, visibility .7s ease;
+  }
+  .intro-gate.gone{opacity:0;visibility:hidden}
+  .intro-gate .g-small{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;text-shadow:0 2px 10px rgba(11,59,79,.4)}
+  .intro-gate .g-title{font-family:var(--font-serif);font-weight:800;font-size:clamp(48px, 12vw, 110px);line-height:1;text-shadow:0 8px 30px rgba(11,59,79,.35)}
+  .intro-gate .g-hand{font-family:var(--font-hand);font-weight:700;font-size:clamp(28px, 6vw, 42px);color:var(--sun);text-shadow:0 4px 14px rgba(11,59,79,.45)}
+  .gate-btn{
+    margin-top:14px;
+    padding:18px 34px;border-radius:999px;
+    background:var(--white);color:var(--deep);
+    font-size:18px;font-weight:700;letter-spacing:.04em;
+    box-shadow:0 18px 40px rgba(11,59,79,.35);
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  .intro-gate .g-note{font-size:13px;opacity:.85}
+  body.gate-open{overflow:hidden}
+
   .confetti{position:fixed;top:-20px;z-index:50;width:10px;height:14px;pointer-events:none;animation:fall linear forwards}
   @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
 
@@ -380,7 +406,14 @@
 </style>
 </head>
 
-<body>
+<body class="gate-open">
+<div class="intro-gate" id="introGate" role="dialog" aria-label="Giriş">
+  <div class="g-small">15 – 19 Mayıs 2027</div>
+  <div class="g-title">Antalya</div>
+  <div class="g-hand">tatile hazır mısın?</div>
+  <button class="gate-btn" id="gateBtn" type="button">🌴 Tatile Başla</button>
+  <div class="g-note">🔊 sesi açmayı unutma</div>
+</div>
 <header class="hero" id="hero">
   <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
     <source src="fotolar/2.mp4" type="video/mp4" />
@@ -537,7 +570,7 @@
   <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
   <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
 </button>
-<div id="ytWrap" aria-hidden="true" style="position:fixed;left:-9999px;top:0;width:200px;height:200px;overflow:hidden;pointer-events:none"><div id="ytPlayer"></div></div>
+<div id="ytWrap" aria-hidden="true" style="position:fixed;left:0;bottom:0;z-index:-5;width:200px;height:200px;opacity:.01;overflow:hidden;pointer-events:none"><div id="ytPlayer"></div></div>
 
 <dialog id="lightbox" aria-label="Fotoğraf önizleme">
   <button type="button" id="lightboxClose" aria-label="Kapat">×</button>
@@ -668,10 +701,11 @@
         onReady:() => {
           ytReady = true;
           musicBtn.hidden = false;
-          if(wantPlay) playMusic();
+          if(wantPlay){ playMusic(); }
+          else { yt.mute(); yt.playVideo(); }   // sessizce ısınsın, dokununca sesi açılır
         },
         onStateChange:(e) => {
-          if(e.data === YT.PlayerState.PLAYING){ musicBtn.classList.add("playing"); stopGestureListen(); }
+          if(e.data === YT.PlayerState.PLAYING && !yt.isMuted()){ musicBtn.classList.add("playing"); stopGestureListen(); }
           if(e.data === YT.PlayerState.PAUSED) musicBtn.classList.remove("playing");
           if(e.data === YT.PlayerState.ENDED){ yt.seekTo(START_AT, true); yt.playVideo(); }
         }
@@ -679,9 +713,10 @@
     });
   };
 
-  function playMusic(){
+  function playMusic(fromStart){
     wantPlay = true;
     if(!ytReady) return;
+    if(fromStart) yt.seekTo(START_AT, true);
     yt.unMute();
     yt.setVolume(80);
     yt.playVideo();
@@ -695,6 +730,16 @@
   function firstGesture(){ if(!userPaused) playMusic(); }
   function stopGestureListen(){ GESTURES.forEach((ev) => document.removeEventListener(ev, firstGesture)); }
   GESTURES.forEach((ev) => document.addEventListener(ev, firstGesture, { passive:true }));
+
+  const gate = $("introGate");
+  $("gateBtn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    userPaused = false;
+    playMusic(true);
+    gate.classList.add("gone");
+    document.body.classList.remove("gate-open");
+    setTimeout(() => gate.remove(), 800);
+  });
   musicBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     const playing = musicBtn.classList.contains("playing");
