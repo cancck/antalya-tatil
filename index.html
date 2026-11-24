@@ -537,7 +537,7 @@
   <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
   <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
 </button>
-<audio id="bgMusic" src="muzik/sarki.mp3" loop preload="auto"></audio>
+<div id="ytWrap" aria-hidden="true" style="position:fixed;left:-9999px;top:0;width:200px;height:200px;overflow:hidden;pointer-events:none"><div id="ytPlayer"></div></div>
 
 <dialog id="lightbox" aria-label="Fotoğraf önizleme">
   <button type="button" id="lightboxClose" aria-label="Kapat">×</button>
@@ -650,19 +650,60 @@
   heroVideo.querySelector("source").addEventListener("error", () => heroVideo.remove());
 
   /* ================= MÜZİK ================= */
-  const audio = $("bgMusic");
+  // Şarkı YouTube'dan çalınır, START_AT saniyesinden başlar ve bitince oraya döner.
+  const YT_VIDEO = "GILi_0RamtY";
+  const START_AT = 30;
   const musicBtn = $("musicBtn");
-  audio.addEventListener("canplay", () => { musicBtn.hidden = false; }, { once:true });
-  function startMusic(){
-    audio.play().then(() => musicBtn.classList.add("playing")).catch(() => {});
+  let yt = null, ytReady = false, wantPlay = false, userPaused = false, hiddenPaused = false;
+
+  const ytTag = document.createElement("script");
+  ytTag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(ytTag);
+
+  window.onYouTubeIframeAPIReady = () => {
+    yt = new YT.Player("ytPlayer", {
+      width:200, height:200, videoId:YT_VIDEO,
+      playerVars:{ start:START_AT, controls:0, playsinline:1, rel:0, disablekb:1 },
+      events:{
+        onReady:() => {
+          ytReady = true;
+          musicBtn.hidden = false;
+          if(wantPlay) playMusic();
+        },
+        onStateChange:(e) => {
+          if(e.data === YT.PlayerState.PLAYING){ musicBtn.classList.add("playing"); stopGestureListen(); }
+          if(e.data === YT.PlayerState.PAUSED) musicBtn.classList.remove("playing");
+          if(e.data === YT.PlayerState.ENDED){ yt.seekTo(START_AT, true); yt.playVideo(); }
+        }
+      }
+    });
+  };
+
+  function playMusic(){
+    wantPlay = true;
+    if(!ytReady) return;
+    yt.unMute();
+    yt.setVolume(80);
+    yt.playVideo();
   }
-  ["click","touchstart","scroll"].forEach((ev) => document.addEventListener(ev, startMusic, { once:true, passive:true }));
+  function pauseMusic(){
+    if(ytReady) yt.pauseVideo();
+    musicBtn.classList.remove("playing");
+  }
+  // Tarayıcılar sesi ancak bir dokunuştan sonra açar; şarkı başlayana kadar her dokunuşta dene.
+  const GESTURES = ["click","touchend","keydown"];
+  function firstGesture(){ if(!userPaused) playMusic(); }
+  function stopGestureListen(){ GESTURES.forEach((ev) => document.removeEventListener(ev, firstGesture)); }
+  GESTURES.forEach((ev) => document.addEventListener(ev, firstGesture, { passive:true }));
   musicBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    if(audio.paused){ startMusic(); } else { audio.pause(); musicBtn.classList.remove("playing"); }
+    const playing = musicBtn.classList.contains("playing");
+    if(playing){ userPaused = true; pauseMusic(); }
+    else { userPaused = false; playMusic(); }
   });
   document.addEventListener("visibilitychange", () => {
-    if(document.hidden && !audio.paused){ audio.pause(); musicBtn.classList.remove("playing"); }
+    if(document.hidden && musicBtn.classList.contains("playing")){ hiddenPaused = true; pauseMusic(); }
+    else if(!document.hidden && hiddenPaused && !userPaused){ hiddenPaused = false; playMusic(); }
   });
 
   /* ================= FOTO DESTESİ ================= */
