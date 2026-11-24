@@ -294,6 +294,20 @@
   .suitcase-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
   .suitcase-foot p{color:var(--muted);font-size:14px;max-width:560px}
 
+  /* ---------- HOTEL ---------- */
+  .hotel{padding:96px 0;background:var(--foam)}
+  .hotel-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+  .hotel-lead{margin-top:16px;color:var(--muted);font-size:17px;max-width:520px}
+  .perks{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .perk{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--white);box-shadow:0 8px 22px rgba(11,59,79,.06)}
+  .perk span{font-size:26px;line-height:1}
+  .perk strong{display:block;font-size:15px}
+  .perk small{display:block;color:var(--muted);font-size:13px}
+  .hotel-map{overflow:hidden;border-radius:22px;box-shadow:var(--shadow);background:var(--white)}
+  .hotel-map iframe{display:block;width:100%;height:440px;border:0}
+  @media(max-width:900px){.hotel-grid{grid-template-columns:1fr}.hotel-map iframe{height:320px}}
+  @media(max-width:420px){.perks{grid-template-columns:1fr}}
+
   /* ---------- PLAN ---------- */
   .plan{padding:96px 0;background:var(--white)}
   .days{margin-top:46px;display:grid;grid-template-columns:repeat(5, minmax(0,1fr));gap:14px}
@@ -428,7 +442,7 @@
     <div class="hero-tag reveal in">☀️ Tatil modu yükleniyor</div>
     <h1 class="serif reveal d1 in">Antalya</h1>
     <div class="hero-sub reveal d2 in">deniz, kum, güneş… ve biz!</div>
-    <div class="hero-date reveal d2 in">15 – 19 Mayıs 2027</div>
+    <div class="hero-date reveal d2 in">15 – 19 Mayıs 2027 · Utopia World · Alanya</div>
     <div class="hero-mini reveal d3 in" id="heroMini"><strong id="heroDays">—</strong><span id="heroDaysLbl">gün kaldı</span></div>
   </div>
   <a class="scroll-cue" href="#countdown" aria-label="Aşağı kaydırın">
@@ -531,16 +545,38 @@
     </div>
   </section>
 
+  <section class="hotel" id="otel">
+    <div class="wrap hotel-grid">
+      <div>
+        <div class="eyebrow reveal">Üssümüz</div>
+        <h2 class="serif section-title reveal d1">Utopia World Hotel</h2>
+        <p class="hotel-lead reveal d2">Alanya Kargıcak'ta, denize bakan bir tepede. 5 gün boyunca tek işimiz yemek, yüzmek, kaymak, tekrar etmek.</p>
+        <div class="perks reveal d2">
+          <div class="perk"><span>🌊</span><div><strong>15.000 m² aquapark</strong><small>kaydıraklar + rafting kanalı</small></div></div>
+          <div class="perk"><span>🏖️</span><div><strong>Özel plaj</strong><small>otelden servisle</small></div></div>
+          <div class="perk"><span>🍽️</span><div><strong>Her şey dahil</strong><small>diyet 20 Mayıs'ta başlar</small></div></div>
+          <div class="perk"><span>📍</span><div><strong>Alanya'ya 16 km</strong><small>Gazipaşa Havalimanı 25 km</small></div></div>
+        </div>
+        <div class="reveal d3" style="margin-top:26px">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Utopia+World+Hotel+Alanya" target="_blank" rel="noopener">📍 Yol Tarifi</a>
+        </div>
+      </div>
+      <div class="hotel-map reveal d2">
+        <iframe title="Utopia World Hotel haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Utopia%20World%20Hotel%20Alanya&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
   <section class="plan" id="plan">
     <div class="wrap center">
       <div class="eyebrow reveal">Gün gün plan</div>
       <h2 class="serif section-title reveal d1">5 gün, sıfır stres.</h2>
       <div class="days">
-        <div class="day reveal" data-date="2027-05-15"><div class="dnum">15</div><div class="dname">Cumartesi</div><h3>🚗 Yola çıkış</h3><p>Otele giriş, havuz, ilk akşam yemeği.</p></div>
-        <div class="day reveal d1" data-date="2027-05-16"><div class="dnum">16</div><div class="dname">Pazar</div><h3>🏖️ Plaj günü</h3><p>Konyaaltı ya da Lara. Bütün gün deniz.</p></div>
-        <div class="day reveal d2" data-date="2027-05-17"><div class="dnum">17</div><div class="dname">Pazartesi</div><h3>🏰 Kaleiçi</h3><p>Dar sokaklar, Yat Limanı, dondurma molası.</p></div>
-        <div class="day reveal d3" data-date="2027-05-18"><div class="dnum">18</div><div class="dname">Salı</div><h3>💦 Düden &amp; tekne</h3><p>Düden Şelalesi, akşamüstü tekne turu.</p></div>
-        <div class="day reveal" data-date="2027-05-19"><div class="dnum">19</div><div class="dname">Çarşamba</div><h3>🏠 Dönüş</h3><p>Son kahvaltı, son fotoğraf, eve dönüş.</p></div>
+        <div class="day reveal" data-date="2027-05-15"><div class="dnum">15</div><div class="dname">Cumartesi</div><h3>🚗 Yola çıkış</h3><p>Utopia World'e giriş, ilk açık büfe, havuz başında gün batımı.</p></div>
+        <div class="day reveal d1" data-date="2027-05-16"><div class="dnum">16</div><div class="dname">Pazar</div><h3>🌊 Aquapark günü</h3><p>Kaydıraklar, rafting kanalı. Çocuklar yorulana kadar (yani hiç).</p></div>
+        <div class="day reveal d2" data-date="2027-05-17"><div class="dnum">17</div><div class="dname">Pazartesi</div><h3>🏖️ Plaj günü</h3><p>Servisle özel plaja. Herkes işteyken biz denizde 😎</p></div>
+        <div class="day reveal d3" data-date="2027-05-18"><div class="dnum">18</div><div class="dname">Salı</div><h3>🏰 Alanya turu</h3><p>Alanya Kalesi, teleferik, Damlataş Mağarası, Kleopatra Plajı.</p></div>
+        <div class="day reveal" data-date="2027-05-19"><div class="dnum">19</div><div class="dname">Çarşamba</div><h3>🏠 Dönüş</h3><p>Son kahvaltı, son kaydırak, son fotoğraf. Eve dönüş.</p></div>
       </div>
       <div class="plan-note">taslak plan, değişebilir 😉</div>
     </div>
@@ -548,9 +584,9 @@
 
   <section class="weather">
     <div class="wrap center">
-      <div class="eyebrow reveal">Mayısta Antalya</div>
+      <div class="eyebrow reveal">Mayısta Alanya</div>
       <h2 class="serif section-title reveal d1">Güneş garantili.</h2>
-      <p class="section-lead reveal d2">Mayıs ortası için ortalama değerler. Akşamlar için ince bir hırka da alın.</p>
+      <p class="section-lead reveal d2">Mayıs ortası için ortalama değerler. Otelin dış havuzları ve aquaparkı ısıtmasız, ilk dalış biraz "ferahlatıcı" olabilir 🥶 Akşamlar için ince bir hırka da alın.</p>
       <div class="weather-grid">
         <div class="w reveal"><div class="ic">☀️</div><strong>27°</strong><span>gündüz</span></div>
         <div class="w reveal d1"><div class="ic">🌙</div><strong>16°</strong><span>gece</span></div>
@@ -562,8 +598,8 @@
 </main>
 
 <footer>
-  <div class="big">Antalya, geliyoruz! 🌴</div>
-  <div class="small">15 – 19 Mayıs 2027 · 8 kişilik ekip</div>
+  <div class="big">Utopia World, geliyoruz! 🌴</div>
+  <div class="small">15 – 19 Mayıs 2027 · Alanya · 8 kişilik ekip</div>
 </footer>
 
 <button class="music-btn" id="musicBtn" aria-label="Müziği aç veya kapat" hidden>
@@ -833,7 +869,7 @@
   /* ================= VALİZ KONTROL ================= */
   const CATEGORIES = [
     { id:"belge",  title:"📄 Belgeler & para", items:["Kimlikler (çocuklarınki dahil)","Otel rezervasyonu","Ehliyet & araç ruhsatı","Kredi kartı & biraz nakit","Araç sigortası / HGS bakiyesi"] },
-    { id:"plaj",   title:"🏖️ Plaj & havuz",   items:["Mayo / bikini (en az 2)","Güneş kremi SPF 50","Güneş gözlüğü","Şapka","Plaj havlusu","Terlik","Su geçirmez telefon kılıfı"] },
+    { id:"plaj",   title:"🏖️ Plaj & havuz",   items:["Mayo / bikini (en az 2)","Su ayakkabısı (aquapark için)","Güneş kremi SPF 50","Güneş gözlüğü","Şapka","Plaj havlusu","Terlik","Su geçirmez telefon kılıfı"] },
     { id:"cocuk",  title:"🧸 Çocuklar (Ömür Buse & Aysila)", items:["Kolluk / deniz simidi","Kova, kürek, kum oyuncakları","Çocuk güneş kremi","Yedek kıyafetler","Atıştırmalıklar & su","Tablet + kulaklık (yol için)","Ateş düşürücü"] },
     { id:"giyim",  title:"👕 Giyim",          items:["Günlük kıyafetler","Akşam yemeği kıyafeti","İnce hırka (akşamlar serin)","Pijama","Rahat yürüyüş ayakkabısı","İç çamaşırı & çorap"] },
     { id:"elek",   title:"🔌 Elektronik",     items:["Telefon şarj aletleri","Powerbank","Kulaklık","Araç şarjı","Fotoğraf makinesi / GoPro"] },
