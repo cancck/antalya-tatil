@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Antalya · 15–19 Mayıs 2027 · Tatile geri sayım" />
+<meta name="theme-color" content="#0b3b4f" />
+<meta property="og:title" content="Antalya'ya Geri Sayım ☀️ 15–19 Mayıs" />
+<meta property="og:description" content="Özcan & Selin, Süleyman & Burcu & Ömür Buse, Ali & Aysun & Aysila — Antalya'ya gidiyoruz!" />
+<meta property="og:type" content="website" />
+<title>Antalya Geri Sayım · 15–19 Mayıs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --deep:#0b3b4f;
+    --sea:#0e7490;
+    --lagoon:#22a6b3;
+    --foam:#e8f7f8;
+    --sand:#f7ead3;
+    --sand-2:#efdcbc;
+    --sun:#ffc23d;
+    --coral:#ff6f59;
+    --coral-dark:#e2523c;
+    --white:#fffdf8;
+    --ink:#10303d;
+    --muted:#4d6a73;
+    --shadow:0 24px 60px rgba(11,59,79,.18);
+    --font-sans:"DM Sans", system-ui, sans-serif;
+    --font-serif:"Fraunces", Georgia, serif;
+    --font-hand:"Caveat", cursive;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  *{margin:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    min-width:320px;
+    color:var(--ink);
+    background:var(--sand);
+    font-family:var(--font-sans);
+    line-height:1.5;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button,input{font:inherit}
+  button{border:0;background:transparent;color:inherit;cursor:pointer}
+  section{position:relative}
+  .wrap{width:min(1120px, calc(100% - 40px));margin-inline:auto}
+  .narrow{width:min(760px, calc(100% - 40px));margin-inline:auto}
+  .center{text-align:center}
+
+  .eyebrow{
+    color:var(--coral);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+  }
+  .serif{font-family:var(--font-serif);font-weight:700;line-height:1;letter-spacing:-.01em}
+  .hand{font-family:var(--font-hand);font-weight:700}
+  .section-title{margin-top:12px;font-size:clamp(38px, 6vw, 68px)}
+  .section-lead{margin:16px auto 0;max-width:560px;color:var(--muted);font-size:17px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:46px;padding:12px 22px;border-radius:999px;
+    background:var(--coral);color:var(--white);
+    font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    box-shadow:0 14px 30px rgba(255,111,89,.3);
+    transition:transform .2s ease, background .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--coral-dark)}
+  .btn.ghost{background:transparent;color:var(--muted);box-shadow:none;border:1px solid rgba(16,48,61,.2)}
+  .btn.ghost:hover{background:rgba(16,48,61,.05)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:var(--white);
+    overflow:hidden;isolation:isolate;
+    background:linear-gradient(180deg, #ff9a6b 0%, #ffc96b 26%, #6fc3d1 58%, var(--sea) 78%, var(--deep) 100%);
+  }
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;z-index:-2;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:linear-gradient(180deg, rgba(11,59,79,.35), rgba(11,59,79,.1) 40%, rgba(11,59,79,.75));
+  }
+  .sun{
+    position:absolute;z-index:-1;
+    width:clamp(140px, 22vw, 240px);aspect-ratio:1;
+    top:12%;right:12%;
+    border-radius:50%;
+    background:radial-gradient(circle, #fff3c4 0%, var(--sun) 55%, rgba(255,194,61,0) 72%);
+    animation:sunFloat 6s ease-in-out infinite alternate;
+  }
+  .hero.has-video .sun,.hero.has-video .waves{display:none}
+  @keyframes sunFloat{from{transform:translateY(0)}to{transform:translateY(14px)}}
+  .waves{position:absolute;left:0;right:0;bottom:0;z-index:-1;height:140px;overflow:hidden}
+  .waves svg{position:absolute;bottom:0;width:200%;height:100%;animation:waveMove 12s linear infinite}
+  .waves svg.w2{opacity:.5;animation-duration:18s;animation-direction:reverse;bottom:14px}
+  @keyframes waveMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .hero-inner{position:relative;width:min(820px, calc(100% - 32px));padding:90px 0 110px}
+  .hero-tag{
+    display:inline-block;
+    padding:8px 18px;border-radius:999px;
+    background:rgba(255,253,248,.18);backdrop-filter:blur(10px);
+    border:1px solid rgba(255,253,248,.35);
+    font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  }
+  .hero h1{
+    margin-top:22px;
+    font-size:clamp(64px, 13vw, 150px);
+    text-shadow:0 8px 30px rgba(11,59,79,.35);
+  }
+  .hero-sub{
+    margin-top:6px;
+    font-family:var(--font-hand);
+    font-size:clamp(30px, 5vw, 48px);
+    color:var(--sun);
+    text-shadow:0 4px 16px rgba(11,59,79,.45);
+  }
+  .hero-date{
+    margin-top:22px;
+    font-size:14px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .hero-mini{
+    margin:30px auto 0;
+    display:inline-flex;gap:8px;align-items:baseline;
+    padding:14px 24px;border-radius:16px;
+    background:rgba(11,59,79,.4);backdrop-filter:blur(10px);
+    font-size:15px;
+  }
+  .hero-mini strong{font-family:var(--font-serif);font-size:34px;color:var(--sun)}
+  .scroll-cue{
+    position:absolute;left:50%;bottom:26px;translate:-50% 0;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    color:rgba(255,253,248,.8);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  }
+  .scroll-cue svg{width:15px;height:15px;animation:bounce 1.8s ease-in-out infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(6px);opacity:1}}
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown{padding:96px 0;background:var(--deep);color:var(--white);overflow:hidden}
+  .countdown::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(60% 80% at 85% 10%, rgba(34,166,179,.35), transparent 60%),
+      radial-gradient(50% 60% at 10% 90%, rgba(255,111,89,.22), transparent 60%);
+  }
+  .countdown .wrap{position:relative}
+  .countdown .eyebrow{color:var(--sun)}
+  .timer{margin-top:40px;display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:14px}
+  .timer-cell{
+    padding:26px 10px;border-radius:18px;text-align:center;
+    background:rgba(255,253,248,.07);
+    border:1px solid rgba(255,253,248,.16);
+  }
+  .timer-cell strong{display:block;font-family:var(--font-serif);font-size:clamp(42px, 7vw, 80px);line-height:1}
+  .timer-cell span{display:block;margin-top:8px;color:rgba(255,253,248,.72);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .fun-stats{margin-top:22px;display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:14px}
+  .fun{
+    padding:18px 18px 16px;border-radius:16px;
+    background:rgba(255,194,61,.1);border:1px dashed rgba(255,194,61,.45);
+  }
+  .fun .num{font-family:var(--font-serif);font-size:34px;color:var(--sun);line-height:1}
+  .fun .lbl{margin-top:6px;font-size:14px;color:rgba(255,253,248,.82)}
+  .vacation-banner{
+    display:none;
+    margin-top:40px;padding:34px 24px;border-radius:20px;text-align:center;
+    background:linear-gradient(135deg, var(--coral), var(--sun));
+    color:var(--deep);
+  }
+  .vacation-banner .big{font-family:var(--font-serif);font-size:clamp(40px, 8vw, 84px);font-weight:800;line-height:1}
+  .vacation-banner p{margin-top:10px;font-size:18px;font-weight:500}
+  body.phase-during .timer,body.phase-during .fun-stats,
+  body.phase-after .timer,body.phase-after .fun-stats{display:none}
+  body.phase-during .vacation-banner,body.phase-after .vacation-banner{display:block}
+
+  /* ---------- CREW ---------- */
+  .crew{padding:96px 0;background:var(--sand)}
+  .crew-grid{margin-top:46px;display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:22px}
+  .family{
+    position:relative;
+    padding:28px 24px 26px;border-radius:22px;
+    background:var(--white);box-shadow:var(--shadow);
+    transition:transform .25s ease;
+  }
+  .family:hover{transform:translateY(-6px) rotate(-.6deg)}
+  .family .emoji{font-size:40px;line-height:1}
+  .family h3{margin-top:14px;font-family:var(--font-serif);font-size:28px;line-height:1.1}
+  .family .kids{margin-top:8px;font-family:var(--font-hand);font-size:26px;color:var(--coral)}
+  .family .role{margin-top:12px;color:var(--muted);font-size:15px}
+  .family .badge{
+    position:absolute;top:18px;right:18px;
+    padding:5px 11px;border-radius:999px;
+    background:var(--foam);color:var(--sea);
+    font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  }
+  .crew-total{margin-top:34px;text-align:center;font-family:var(--font-hand);font-size:30px;color:var(--sea)}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{padding:96px 0 100px;background:var(--foam);overflow:hidden}
+  .photo-stack-wrap{display:flex;justify-content:center;margin-top:46px}
+  .photo-stack{position:relative;width:min(320px, 76vw);aspect-ratio:3/4}
+  .stack-card{
+    position:absolute;inset:0;
+    padding:12px 12px 46px;border-radius:3px;
+    background:var(--white);
+    box-shadow:0 24px 54px rgba(11,59,79,.24), 0 4px 14px rgba(11,59,79,.12);
+  }
+  .stack-card::after{
+    content:"";position:absolute;inset:12px 12px 46px;
+    background-image:var(--image), var(--fallback);
+    background-size:cover;background-position:center 30%;
+  }
+  .stack-card .caption{
+    position:absolute;left:0;right:0;bottom:8px;
+    text-align:center;font-family:var(--font-hand);font-size:24px;color:var(--ink);
+  }
+  .stack-card.back-1{transform:rotate(-8deg) translateY(4px);z-index:1}
+  .stack-card.back-2{transform:rotate(6deg) translateY(2px);z-index:2}
+  .stack-card.front{z-index:3;cursor:grab;transform:rotate(-1.5deg);user-select:none;-webkit-user-select:none;touch-action:none}
+  .stack-card.front:active{cursor:grabbing}
+  .tape{
+    position:absolute;top:-14px;left:50%;z-index:4;
+    width:96px;height:30px;transform:translateX(-50%) rotate(-3deg);
+    background:rgba(255,194,61,.75);
+    box-shadow:0 4px 10px rgba(11,59,79,.15);
+  }
+  .stack-hint{margin-top:26px;text-align:center;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+
+  /* ---------- SUITCASE ---------- */
+  .suitcase{padding:96px 0;background:var(--sand)}
+  .progress-card{
+    margin-top:40px;padding:24px;border-radius:20px;
+    background:var(--deep);color:var(--white);
+  }
+  .progress-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .progress-top strong{font-family:var(--font-serif);font-size:40px;color:var(--sun);line-height:1}
+  .progress-top span{color:rgba(255,253,248,.78);font-size:15px}
+  .bar{margin-top:16px;height:14px;border-radius:999px;background:rgba(255,253,248,.14);overflow:hidden}
+  .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg, var(--lagoon), var(--sun), var(--coral));transition:width .5s ease}
+  .progress-msg{margin-top:12px;font-family:var(--font-hand);font-size:26px;color:var(--sun)}
+
+  .cat-grid{margin-top:26px;display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:18px}
+  .cat{padding:22px 22px 14px;border-radius:20px;background:var(--white);box-shadow:0 10px 28px rgba(11,59,79,.07)}
+  .cat-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .cat-head h3{font-family:var(--font-serif);font-size:22px}
+  .cat-head small{color:var(--muted);font-weight:700;font-size:13px;white-space:nowrap}
+  .cat.done{outline:2px solid var(--lagoon)}
+  .item{
+    display:flex;align-items:center;gap:12px;
+    padding:10px 4px;border-top:1px solid rgba(16,48,61,.07);
+    cursor:pointer;
+  }
+  .item input{
+    appearance:none;-webkit-appearance:none;flex:none;
+    width:24px;height:24px;border-radius:8px;
+    border:2px solid rgba(16,48,61,.25);
+    display:grid;place-items:center;cursor:pointer;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .item input:checked{background:var(--lagoon);border-color:var(--lagoon)}
+  .item input:checked::after{content:"";width:6px;height:11px;border:solid var(--white);border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px)}
+  .item .txt{flex:1;font-size:16px;transition:color .15s ease}
+  .item input:checked + .txt{color:#8aa0a7;text-decoration:line-through}
+  .item .del{
+    width:28px;height:28px;border-radius:50%;flex:none;
+    color:#9fb0b5;font-size:20px;line-height:1;
+  }
+  .item .del:hover{background:rgba(255,111,89,.12);color:var(--coral)}
+  .add-row{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(16,48,61,.07)}
+  .add-row input{
+    flex:1;min-width:0;
+    padding:9px 12px;border-radius:10px;
+    border:1px solid rgba(16,48,61,.15);background:var(--foam);color:var(--ink);
+  }
+  .add-row button{padding:0 14px;border-radius:10px;background:var(--foam);color:var(--sea);font-weight:700;font-size:20px}
+  .add-row button:hover{background:var(--lagoon);color:var(--white)}
+  .suitcase-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .suitcase-foot p{color:var(--muted);font-size:14px;max-width:560px}
+
+  /* ---------- PLAN ---------- */
+  .plan{padding:96px 0;background:var(--white)}
+  .days{margin-top:46px;display:grid;grid-template-columns:repeat(5, minmax(0,1fr));gap:14px}
+  .day{
+    padding:22px 18px;border-radius:20px;
+    background:var(--foam);
+    border-top:6px solid var(--lagoon);
+  }
+  .day:nth-child(2){border-color:var(--sun)}
+  .day:nth-child(3){border-color:var(--coral)}
+  .day:nth-child(4){border-color:var(--sea)}
+  .day:nth-child(5){border-color:var(--deep)}
+  .day .dnum{font-family:var(--font-serif);font-size:40px;line-height:1}
+  .day .dname{margin-top:4px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .day h3{margin-top:16px;font-size:18px}
+  .day p{margin-top:6px;color:var(--muted);font-size:14px}
+  .day.today{background:var(--sun)}
+  .plan-note{margin-top:20px;text-align:center;font-family:var(--font-hand);font-size:24px;color:var(--muted)}
+
+  /* ---------- WEATHER ---------- */
+  .weather{padding:80px 0;background:linear-gradient(135deg, var(--lagoon), var(--sea));color:var(--white)}
+  .weather-grid{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:14px;margin-top:36px}
+  .w{padding:22px;border-radius:18px;background:rgba(255,253,248,.12);border:1px solid rgba(255,253,248,.22);text-align:center}
+  .w .ic{font-size:34px}
+  .w strong{display:block;margin-top:8px;font-family:var(--font-serif);font-size:36px;line-height:1}
+  .w span{display:block;margin-top:6px;color:rgba(255,253,248,.82);font-size:14px}
+  .weather .eyebrow{color:var(--sun)}
+  .weather .section-lead{color:rgba(255,253,248,.82)}
+
+  footer{padding:46px 20px 96px;text-align:center;color:var(--white);background:var(--deep)}
+  footer .big{font-family:var(--font-hand);font-size:44px;color:var(--sun)}
+  footer .small{margin-top:8px;color:rgba(255,253,248,.66);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+
+  .music-btn{
+    position:fixed;right:18px;bottom:18px;z-index:20;
+    width:56px;height:56px;border-radius:50%;
+    display:grid;place-items:center;
+    background:var(--sun);color:var(--deep);
+    box-shadow:0 14px 36px rgba(11,59,79,.3);
+  }
+  .music-btn[hidden]{display:none}
+  .music-btn svg{width:22px;height:22px}
+  .music-btn .pause-icon{display:none}
+  .music-btn.playing .play-icon{display:none}
+  .music-btn.playing .pause-icon{display:block}
+
+  #lightbox{width:min(1080px, calc(100vw - 32px));padding:0;border:0;background:transparent;overflow:visible;margin:auto}
+  #lightbox::backdrop{background:rgba(11,59,79,.86);backdrop-filter:blur(10px)}
+  .lightbox-photo{
+    width:100%;height:calc(100svh - 64px);max-height:860px;border-radius:12px;
+    background-image:var(--lb-image), var(--lb-fallback);
+    background-size:contain;background-position:center;background-repeat:no-repeat;
+    touch-action:none;user-select:none;cursor:grab;
+  }
+  #lightboxClose{position:absolute;top:-16px;right:-16px;width:44px;height:44px;border-radius:50%;background:var(--white);color:var(--ink);font-size:28px;box-shadow:0 14px 34px rgba(0,0,0,.26);z-index:2}
+  .lb-nav{position:absolute;top:50%;z-index:1;width:50px;height:50px;display:grid;place-items:center;border-radius:50%;background:rgba(255,253,248,.92);color:var(--ink);transform:translateY(-50%)}
+  .lb-nav svg{width:20px;height:20px}
+  .lb-nav.prev{left:-22px}.lb-nav.next{right:-22px}
+  body.lightbox-open{overflow:hidden}
+
+  .confetti{position:fixed;top:-20px;z-index:50;width:10px;height:14px;pointer-events:none;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+  @media(max-width:900px){
+    .crew-grid{grid-template-columns:1fr}
+    .fun-stats{grid-template-columns:1fr 1fr}
+    .days{grid-template-columns:1fr 1fr}
+    .weather-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .wrap,.narrow{width:calc(100% - 32px)}
+    .timer{grid-template-columns:1fr 1fr;gap:10px}
+    .fun-stats{gap:10px}
+    .fun .num{font-size:28px}
+    .cat-grid{grid-template-columns:1fr}
+    .days{grid-template-columns:1fr}
+    .lb-nav.prev{left:6px}.lb-nav.next{right:6px}
+    footer .big{font-size:36px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .sun,.waves svg,.scroll-cue svg{animation:none}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+
+<body>
+<header class="hero" id="hero">
+  <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
+    <source src="fotolar/2.mp4" type="video/mp4" />
+  </video>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="waves" aria-hidden="true">
+    <svg class="w2" viewBox="0 0 1440 140" preserveAspectRatio="none"><path fill="#22a6b3" d="M0 70 Q90 30 180 70 T360 70 T540 70 T720 70 T900 70 T1080 70 T1260 70 T1440 70 V140 H0Z"/></svg>
+    <svg viewBox="0 0 1440 140" preserveAspectRatio="none"><path fill="#0b3b4f" d="M0 80 Q90 50 180 80 T360 80 T540 80 T720 80 T900 80 T1080 80 T1260 80 T1440 80 V140 H0Z"/></svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-tag reveal in">☀️ Tatil modu yükleniyor</div>
+    <h1 class="serif reveal d1 in">Antalya</h1>
+    <div class="hero-sub reveal d2 in">deniz, kum, güneş… ve biz!</div>
+    <div class="hero-date reveal d2 in">15 – 19 Mayıs 2027</div>
+    <div class="hero-mini reveal d3 in" id="heroMini"><strong id="heroDays">—</strong><span id="heroDaysLbl">gün kaldı</span></div>
+  </div>
+  <a class="scroll-cue" href="#countdown" aria-label="Aşağı kaydırın">
+    <span>Kaydırın</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</header>
+
+<main>
+  <section class="countdown" id="countdown">
+    <div class="wrap">
+      <div class="eyebrow reveal">Tatile kalan süre</div>
+      <h2 class="serif section-title reveal d1" id="cdTitle">Valizler hazır mı?</h2>
+      <div class="timer reveal d2" aria-label="Tatile kalan süre">
+        <div class="timer-cell"><strong id="cd-days">00</strong><span>Gün</span></div>
+        <div class="timer-cell"><strong id="cd-hours">00</strong><span>Saat</span></div>
+        <div class="timer-cell"><strong id="cd-mins">00</strong><span>Dakika</span></div>
+        <div class="timer-cell"><strong id="cd-secs">00</strong><span>Saniye</span></div>
+      </div>
+      <div class="fun-stats reveal d3">
+        <div class="fun"><div class="num" id="f-sleep">0</div><div class="lbl">😴 uyku kaldı</div></div>
+        <div class="fun"><div class="num" id="f-monday">0</div><div class="lbl">😩 Pazartesi atlatılacak</div></div>
+        <div class="fun"><div class="num" id="f-work">0</div><div class="lbl">💼 saat mesai kaldı</div></div>
+        <div class="fun"><div class="num" id="f-coffee">0</div><div class="lbl">☕ kahve içilecek</div></div>
+      </div>
+      <div class="vacation-banner" id="vacBanner">
+        <div class="big" id="vacBig">TATİLDEYİZ! 🏖️</div>
+        <p id="vacText">Telefonu bırak, denize gir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="crew" id="ekip">
+    <div class="wrap center">
+      <div class="eyebrow reveal">Tatil ekibi</div>
+      <h2 class="serif section-title reveal d1">3 aile, 1 hedef: Antalya.</h2>
+      <div class="crew-grid">
+        <article class="family reveal">
+          <div class="badge">Organizatör</div>
+          <div class="emoji">🧭</div>
+          <h3>Özcan &amp; Selin</h3>
+          <div class="kids">&nbsp;</div>
+          <p class="role">Siteyi yapan, valiz listesini dağıtan ekip.</p>
+        </article>
+        <article class="family reveal d1">
+          <div class="badge">Aile 2</div>
+          <div class="emoji">🏖️</div>
+          <h3>Süleyman &amp; Burcu</h3>
+          <div class="kids">+ Ömür Buse</div>
+          <p class="role">Kumdan kale sorumlusu: Ömür Buse.</p>
+        </article>
+        <article class="family reveal d2">
+          <div class="badge">Aile 3</div>
+          <div class="emoji">🌴</div>
+          <h3>Ali &amp; Aysun</h3>
+          <div class="kids">+ Aysila</div>
+          <p class="role">Havuz kaptanı: Aysila.</p>
+        </article>
+      </div>
+      <div class="crew-total reveal">6 büyük + 2 minik = 8 kişilik tatil ekibi 🧳</div>
+    </div>
+  </section>
+
+  <section class="gallery" aria-label="Fotoğraflar">
+    <div class="wrap center">
+      <div class="eyebrow reveal">Ekipten kareler</div>
+      <h2 class="serif section-title reveal d1" style="font-size:clamp(34px, 5vw, 56px)">Bu sefer daha güzel olacak.</h2>
+    </div>
+    <div class="photo-stack-wrap">
+      <div class="photo-stack reveal d1">
+        <div class="tape" aria-hidden="true"></div>
+        <div class="stack-card back-1" id="stackBack1" aria-hidden="true"></div>
+        <div class="stack-card back-2" id="stackBack2" aria-hidden="true"></div>
+        <button class="stack-card front" id="stackFront" type="button" aria-label="Fotoğrafı büyüt"><span class="caption" id="stackCaption"></span></button>
+      </div>
+    </div>
+    <div class="stack-hint">Sağa sola kaydırın · büyütmek için dokunun</div>
+  </section>
+
+  <section class="suitcase" id="valiz">
+    <div class="narrow center">
+      <div class="eyebrow reveal">Valiz kontrol</div>
+      <h2 class="serif section-title reveal d1">Bir şey unutma!</h2>
+      <p class="section-lead reveal d2">Hazırladıklarını işaretle. Listende olmayanları her kategorinin altından ekleyebilirsin.</p>
+    </div>
+    <div class="wrap">
+      <div class="progress-card reveal">
+        <div class="progress-top">
+          <strong id="pPct">%0</strong>
+          <span id="pCount">0 / 0 hazır</span>
+        </div>
+        <div class="bar"><i id="pBar"></i></div>
+        <div class="progress-msg" id="pMsg">Valiz daha dolaptan çıkmadı 😅</div>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+      <div class="suitcase-foot">
+        <p>📱 İşaretlerin sadece bu telefonda ya da bilgisayarda saklanır. Herkes kendi valizini kendi cihazından takip eder.</p>
+        <button class="btn ghost" id="resetBtn" type="button">Listeyi sıfırla</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan" id="plan">
+    <div class="wrap center">
+      <div class="eyebrow reveal">Gün gün plan</div>
+      <h2 class="serif section-title reveal d1">5 gün, sıfır stres.</h2>
+      <div class="days">
+        <div class="day reveal" data-date="2027-05-15"><div class="dnum">15</div><div class="dname">Cumartesi</div><h3>🚗 Yola çıkış</h3><p>Otele giriş, havuz, ilk akşam yemeği.</p></div>
+        <div class="day reveal d1" data-date="2027-05-16"><div class="dnum">16</div><div class="dname">Pazar</div><h3>🏖️ Plaj günü</h3><p>Konyaaltı ya da Lara. Bütün gün deniz.</p></div>
+        <div class="day reveal d2" data-date="2027-05-17"><div class="dnum">17</div><div class="dname">Pazartesi</div><h3>🏰 Kaleiçi</h3><p>Dar sokaklar, Yat Limanı, dondurma molası.</p></div>
+        <div class="day reveal d3" data-date="2027-05-18"><div class="dnum">18</div><div class="dname">Salı</div><h3>💦 Düden &amp; tekne</h3><p>Düden Şelalesi, akşamüstü tekne turu.</p></div>
+        <div class="day reveal" data-date="2027-05-19"><div class="dnum">19</div><div class="dname">Çarşamba</div><h3>🏠 Dönüş</h3><p>Son kahvaltı, son fotoğraf, eve dönüş.</p></div>
+      </div>
+      <div class="plan-note">taslak plan, değişebilir 😉</div>
+    </div>
+  </section>
+
+  <section class="weather">
+    <div class="wrap center">
+      <div class="eyebrow reveal">Mayısta Antalya</div>
+      <h2 class="serif section-title reveal d1">Güneş garantili.</h2>
+      <p class="section-lead reveal d2">Mayıs ortası için ortalama değerler. Akşamlar için ince bir hırka da alın.</p>
+      <div class="weather-grid">
+        <div class="w reveal"><div class="ic">☀️</div><strong>27°</strong><span>gündüz</span></div>
+        <div class="w reveal d1"><div class="ic">🌙</div><strong>16°</strong><span>gece</span></div>
+        <div class="w reveal d2"><div class="ic">🌊</div><strong>21°</strong><span>deniz suyu</span></div>
+        <div class="w reveal d3"><div class="ic">⏱️</div><strong>~10 sa</strong><span>güneşli saat / gün</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="big">Antalya, geliyoruz! 🌴</div>
+  <div class="small">15 – 19 Mayıs 2027 · 8 kişilik ekip</div>
+</footer>
+
+<button class="music-btn" id="musicBtn" aria-label="Müziği aç veya kapat" hidden>
+  <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+</button>
+<audio id="bgMusic" src="muzik/sarki.mp3" loop preload="auto"></audio>
+
+<dialog id="lightbox" aria-label="Fotoğraf önizleme">
+  <button type="button" id="lightboxClose" aria-label="Kapat">×</button>
+  <button type="button" class="lb-nav prev" id="lbPrev" aria-label="Önceki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button type="button" class="lb-nav next" id="lbNext" aria-label="Sonraki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="lightbox-photo" id="lbPhoto"></div>
+</dialog>
+
+<script>
+  /* ================= AYARLAR ================= */
+  const TRIP_START = new Date("2027-05-15T08:00:00+03:00");   // yola çıkış
+  const TRIP_END   = new Date("2027-05-19T23:59:59+03:00");   // dönüş günü sonu
+
+  // Fotoğraflar: fotolar/ klasörüne atılan dosyalar. Dosya yoksa renkli yer tutucu görünür.
+  const PHOTOS = [
+    { src:"fotolar/5.jpeg", caption:"Antalya, hazır mısın? 👊" },
+    { src:"fotolar/7.jpeg", caption:"Kapadokya tamam, sıra Antalya'da 🎈" },
+    { src:"fotolar/6.jpeg", caption:"denize karşı 🌊" },
+    { src:"fotolar/1.jpeg", caption:"erkekler gecesi 🎸" },
+    { src:"fotolar/4.jpeg", caption:"altılı ekip 💛" },
+    { src:"fotolar/3.jpeg", caption:"Selin & Özcan 💍" }
+  ];
+  const FALLBACKS = [
+    "linear-gradient(160deg,#ffc23d,#ff6f59)",
+    "linear-gradient(160deg,#22a6b3,#0b3b4f)",
+    "linear-gradient(160deg,#ff9a6b,#ffc23d)",
+    "linear-gradient(160deg,#0e7490,#22a6b3)"
+  ];
+
+  /* ================= GERİ SAYIM ================= */
+  const $ = (id) => document.getElementById(id);
+  const pad = (n) => String(n).padStart(2, "0");
+  const DAY = 86400000;
+
+  function countWeekday(from, to, weekday){
+    let c = 0;
+    const d = new Date(from); d.setHours(0,0,0,0); d.setDate(d.getDate() + 1);
+    while(d < to){ if(d.getDay() === weekday) c++; d.setDate(d.getDate() + 1); }
+    return c;
+  }
+  function countWorkdays(from, to){
+    let c = 0;
+    const d = new Date(from); d.setHours(0,0,0,0); d.setDate(d.getDate() + 1);
+    while(d < to){ const w = d.getDay(); if(w !== 0 && w !== 6) c++; d.setDate(d.getDate() + 1); }
+    return c;
+  }
+
+  let lastDayKey = "";
+  function tick(){
+    const now = new Date();
+    if(now >= TRIP_START){
+      const after = now > TRIP_END;
+      document.body.classList.toggle("phase-during", !after);
+      document.body.classList.toggle("phase-after", after);
+      if(after){
+        $("vacBig").textContent = "Ne tatildi ama! 🥹";
+        $("vacText").textContent = "Bir sonrakine geri sayım ne zaman başlıyor?";
+        $("cdTitle").textContent = "Anılar cepte.";
+        $("heroDays").textContent = "✓";
+        $("heroDaysLbl").textContent = "tatil tamamlandı";
+      } else {
+        const dayNo = Math.min(5, Math.floor((now - new Date("2027-05-15T00:00:00+03:00")) / DAY) + 1);
+        $("vacBig").textContent = "TATİLDEYİZ! 🏖️";
+        $("vacText").textContent = `Tatilin ${dayNo}. günü. Telefonu bırak, denize gir.`;
+        $("cdTitle").textContent = "Şu an Antalya'dayız!";
+        $("heroDays").textContent = `${dayNo}/5`;
+        $("heroDaysLbl").textContent = ". gün";
+      }
+      markToday(now);
+      return;
+    }
+    let diff = TRIP_START - now;
+    const d = Math.floor(diff / DAY); diff -= d * DAY;
+    const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+    const m = Math.floor(diff / 60000); diff -= m * 60000;
+    const s = Math.floor(diff / 1000);
+    $("cd-days").textContent = pad(d);
+    $("cd-hours").textContent = pad(h);
+    $("cd-mins").textContent = pad(m);
+    $("cd-secs").textContent = pad(s);
+    $("heroDays").textContent = d;
+    $("heroDaysLbl").textContent = d === 0 ? "gün kaldı — yarın yoldayız!" : "gün kaldı";
+
+    const dayKey = now.toDateString();
+    if(dayKey !== lastDayKey){
+      lastDayKey = dayKey;
+      const work = countWorkdays(now, TRIP_START);
+      $("f-sleep").textContent = Math.ceil((TRIP_START - now) / DAY);
+      $("f-monday").textContent = countWeekday(now, TRIP_START, 1);
+      $("f-work").textContent = (work * 9).toLocaleString("tr-TR");
+      $("f-coffee").textContent = (Math.ceil((TRIP_START - now) / DAY) * 2).toLocaleString("tr-TR");
+    }
+  }
+  function markToday(now){
+    const key = now.toLocaleDateString("sv-SE", { timeZone:"Europe/Istanbul" });
+    document.querySelectorAll(".day").forEach((el) => el.classList.toggle("today", el.dataset.date === key));
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ================= REVEAL ================= */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold:.12, rootMargin:"0px 0px -6% 0px" });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  /* ================= HERO VİDEO ================= */
+  const heroVideo = $("heroVideo");
+  heroVideo.addEventListener("loadeddata", () => $("hero").classList.add("has-video"));
+  heroVideo.querySelector("source").addEventListener("error", () => heroVideo.remove());
+
+  /* ================= MÜZİK ================= */
+  const audio = $("bgMusic");
+  const musicBtn = $("musicBtn");
+  audio.addEventListener("canplay", () => { musicBtn.hidden = false; }, { once:true });
+  function startMusic(){
+    audio.play().then(() => musicBtn.classList.add("playing")).catch(() => {});
+  }
+  ["click","touchstart","scroll"].forEach((ev) => document.addEventListener(ev, startMusic, { once:true, passive:true }));
+  musicBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if(audio.paused){ startMusic(); } else { audio.pause(); musicBtn.classList.remove("playing"); }
+  });
+  document.addEventListener("visibilitychange", () => {
+    if(document.hidden && !audio.paused){ audio.pause(); musicBtn.classList.remove("playing"); }
+  });
+
+  /* ================= FOTO DESTESİ ================= */
+  const imgVar = (i) => `url("${PHOTOS[i].src}")`;
+  const fbVar = (i) => FALLBACKS[i % FALLBACKS.length];
+  const front = $("stackFront");
+  let idx = 0;
+  function paintStack(){
+    const n = PHOTOS.length;
+    const set = (el, i) => { el.style.setProperty("--image", imgVar(i)); el.style.setProperty("--fallback", fbVar(i)); };
+    set(front, idx);
+    set($("stackBack2"), (idx + 1) % n);
+    set($("stackBack1"), (idx + 2) % n);
+    $("stackCaption").textContent = PHOTOS[idx].caption;
+  }
+  paintStack();
+
+  let sx = 0, dx = 0, dragging = false, moved = false, busy = false, st = 0;
+  const setCard = (x, rot, tr) => { front.style.transition = tr; front.style.transform = `translateX(${x}px) rotate(${rot}deg)`; };
+  function slide(dir){
+    busy = true;
+    setCard(-34 * dir, dir * -6, "transform .1s ease-in");
+    setTimeout(() => {
+      idx = (idx + dir + PHOTOS.length) % PHOTOS.length;
+      paintStack();
+      setCard(0, -1.5, "none");
+      setTimeout(() => { busy = false; }, 20);
+    }, 100);
+  }
+  front.addEventListener("pointerdown", (e) => {
+    if(busy) return;
+    sx = e.clientX; dx = 0; st = Date.now(); dragging = true; moved = false;
+    front.setPointerCapture(e.pointerId);
+  });
+  front.addEventListener("pointermove", (e) => {
+    if(!dragging) return;
+    dx = e.clientX - sx;
+    if(Math.abs(dx) > 6) moved = true;
+    const vx = Math.sign(dx) * Math.min(Math.abs(dx) * .4, 40);
+    setCard(vx, -1.5 + vx / 16, "none");
+  });
+  function endDrag(){
+    if(!dragging) return;
+    dragging = false;
+    const flick = Date.now() - st < 300 && Math.abs(dx) > 18;
+    if(Math.abs(dx) > 28 || flick) slide(dx < 0 ? 1 : -1);
+    else setCard(0, -1.5, "transform .3s ease");
+  }
+  front.addEventListener("pointerup", endDrag);
+  front.addEventListener("pointercancel", endDrag);
+
+  /* ================= LIGHTBOX ================= */
+  const lb = $("lightbox"), lbPhoto = $("lbPhoto");
+  let lbIdx = 0;
+  function showLb(i){
+    lbIdx = (i + PHOTOS.length) % PHOTOS.length;
+    lbPhoto.style.setProperty("--lb-image", imgVar(lbIdx));
+    lbPhoto.style.setProperty("--lb-fallback", fbVar(lbIdx));
+  }
+  front.addEventListener("click", () => {
+    if(moved) return;
+    showLb(idx);
+    if(typeof lb.showModal === "function"){ lb.showModal(); document.body.classList.add("lightbox-open"); }
+  });
+  $("lbPrev").addEventListener("click", () => showLb(lbIdx - 1));
+  $("lbNext").addEventListener("click", () => showLb(lbIdx + 1));
+  $("lightboxClose").addEventListener("click", () => lb.close());
+  lb.addEventListener("click", (e) => { if(e.target === lb) lb.close(); });
+  lb.addEventListener("close", () => document.body.classList.remove("lightbox-open"));
+  document.addEventListener("keydown", (e) => {
+    if(!lb.open) return;
+    if(e.key === "ArrowLeft") showLb(lbIdx - 1);
+    if(e.key === "ArrowRight") showLb(lbIdx + 1);
+  });
+  let lsx = 0, ldx = 0, ldrag = false;
+  lbPhoto.addEventListener("pointerdown", (e) => { lsx = e.clientX; ldx = 0; ldrag = true; lbPhoto.setPointerCapture(e.pointerId); });
+  lbPhoto.addEventListener("pointermove", (e) => { if(ldrag) ldx = e.clientX - lsx; });
+  const lEnd = () => { if(!ldrag) return; ldrag = false; if(Math.abs(ldx) > 40) showLb(lbIdx + (ldx < 0 ? 1 : -1)); };
+  lbPhoto.addEventListener("pointerup", lEnd);
+  lbPhoto.addEventListener("pointercancel", lEnd);
+
+  /* ================= VALİZ KONTROL ================= */
+  const CATEGORIES = [
+    { id:"belge",  title:"📄 Belgeler & para", items:["Kimlikler (çocuklarınki dahil)","Otel rezervasyonu","Ehliyet & araç ruhsatı","Kredi kartı & biraz nakit","Araç sigortası / HGS bakiyesi"] },
+    { id:"plaj",   title:"🏖️ Plaj & havuz",   items:["Mayo / bikini (en az 2)","Güneş kremi SPF 50","Güneş gözlüğü","Şapka","Plaj havlusu","Terlik","Su geçirmez telefon kılıfı"] },
+    { id:"cocuk",  title:"🧸 Çocuklar (Ömür Buse & Aysila)", items:["Kolluk / deniz simidi","Kova, kürek, kum oyuncakları","Çocuk güneş kremi","Yedek kıyafetler","Atıştırmalıklar & su","Tablet + kulaklık (yol için)","Ateş düşürücü"] },
+    { id:"giyim",  title:"👕 Giyim",          items:["Günlük kıyafetler","Akşam yemeği kıyafeti","İnce hırka (akşamlar serin)","Pijama","Rahat yürüyüş ayakkabısı","İç çamaşırı & çorap"] },
+    { id:"elek",   title:"🔌 Elektronik",     items:["Telefon şarj aletleri","Powerbank","Kulaklık","Araç şarjı","Fotoğraf makinesi / GoPro"] },
+    { id:"saglik", title:"💊 Sağlık & bakım", items:["Diş fırçası & macun","Düzenli kullanılan ilaçlar","Sivrisinek kovucu","Yara bandı","Mide / ağrı kesici","Şampuan & duş jeli"] }
+  ];
+  const STORE_KEY = "antalya-valiz-v1";
+  function loadState(){
+    try { return JSON.parse(localStorage.getItem(STORE_KEY)) || { checked:{}, custom:{} }; }
+    catch(e){ return { checked:{}, custom:{} }; }
+  }
+  function saveState(){
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e){}
+  }
+  let state = loadState();
+  state.checked = state.checked || {};
+  state.custom = state.custom || {};
+
+  const grid = $("catGrid");
+  function itemKey(cat, text){ return cat + "::" + text; }
+  function esc(s){ return s.replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c])); }
+
+  function render(){
+    grid.innerHTML = "";
+    CATEGORIES.forEach((cat) => {
+      const custom = state.custom[cat.id] || [];
+      const all = [...cat.items.map((t) => ({ t, c:false })), ...custom.map((t) => ({ t, c:true }))];
+      const doneCount = all.filter((x) => state.checked[itemKey(cat.id, x.t)]).length;
+      const box = document.createElement("div");
+      box.className = "cat" + (all.length && doneCount === all.length ? " done" : "");
+      box.innerHTML = `
+        <div class="cat-head"><h3>${cat.title}</h3><small>${doneCount}/${all.length}</small></div>
+        ${all.map((x) => `
+          <label class="item">
+            <input type="checkbox" data-key="${esc(itemKey(cat.id, x.t))}" ${state.checked[itemKey(cat.id, x.t)] ? "checked" : ""} />
+            <span class="txt">${esc(x.t)}</span>
+            ${x.c ? `<button type="button" class="del" data-cat="${cat.id}" data-text="${esc(x.t)}" aria-label="Sil">×</button>` : ""}
+          </label>`).join("")}
+        <form class="add-row" data-cat="${cat.id}">
+          <input type="text" maxlength="60" placeholder="Başka bir şey ekle…" aria-label="${esc(cat.title)} kategorisine ekle" />
+          <button type="submit" aria-label="Ekle">+</button>
+        </form>`;
+      grid.appendChild(box);
+    });
+    updateProgress();
+  }
+
+  let wasComplete = null;
+  function updateProgress(){
+    let total = 0, done = 0;
+    CATEGORIES.forEach((cat) => {
+      const all = [...cat.items, ...(state.custom[cat.id] || [])];
+      total += all.length;
+      done += all.filter((t) => state.checked[itemKey(cat.id, t)]).length;
+    });
+    const pct = total ? Math.round(done / total * 100) : 0;
+    $("pPct").textContent = "%" + pct;
+    $("pCount").textContent = `${done} / ${total} hazır`;
+    $("pBar").style.width = pct + "%";
+    $("pMsg").textContent =
+      pct === 100 ? "Valiz kapandı! Antalya, geliyoruz! 🎉" :
+      pct >= 75  ? "Az kaldı, fermuarı çekmeye hazırlan 💪" :
+      pct >= 40  ? "Yarısını geçtik, güneş kremini unutma ☀️" :
+      pct > 0    ? "Güzel başlangıç, devam! 🧳" :
+                   "Valiz daha dolaptan çıkmadı 😅";
+    const complete = pct === 100;
+    if(complete && wasComplete === false) confetti();
+    wasComplete = complete;
+  }
+
+  grid.addEventListener("change", (e) => {
+    const cb = e.target.closest("input[type=checkbox]");
+    if(!cb) return;
+    const key = cb.dataset.key;
+    if(cb.checked) state.checked[key] = true; else delete state.checked[key];
+    saveState();
+    const cat = cb.closest(".cat");
+    const boxes = cat.querySelectorAll("input[type=checkbox]");
+    const d = [...boxes].filter((b) => b.checked).length;
+    cat.querySelector(".cat-head small").textContent = `${d}/${boxes.length}`;
+    cat.classList.toggle("done", d === boxes.length);
+    updateProgress();
+  });
+  grid.addEventListener("click", (e) => {
+    const del = e.target.closest(".del");
+    if(!del) return;
+    e.preventDefault();
+    const { cat, text } = del.dataset;
+    state.custom[cat] = (state.custom[cat] || []).filter((t) => t !== text);
+    delete state.checked[itemKey(cat, text)];
+    saveState(); render();
+  });
+  grid.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const input = form.querySelector("input");
+    const text = input.value.trim();
+    if(!text) return;
+    const cat = form.dataset.cat;
+    const base = CATEGORIES.find((c) => c.id === cat).items;
+    const list = state.custom[cat] || (state.custom[cat] = []);
+    if(!base.includes(text) && !list.includes(text)) list.push(text);
+    saveState(); render();
+    const again = grid.querySelector(`form[data-cat="${cat}"] input`);
+    if(again) again.focus();
+  });
+  $("resetBtn").addEventListener("click", () => {
+    if(!confirm("Tüm işaretler ve eklediğin maddeler silinsin mi?")) return;
+    state = { checked:{}, custom:{} };
+    saveState(); render();
+  });
+  render();
+
+  function confetti(){
+    const colors = ["#ffc23d","#ff6f59","#22a6b3","#0e7490","#fffdf8"];
+    for(let i = 0; i < 90; i++){
+      const p = document.createElement("div");
+      p.className = "confetti";
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.background = colors[i % colors.length];
+      p.style.animationDuration = (2 + Math.random() * 2.5) + "s";
+      p.style.animationDelay = (Math.random() * .6) + "s";
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 5500);
+    }
+  }
+</script>
+</body>
+</html>
