@@ -526,7 +526,7 @@
     <div class="narrow center">
       <div class="eyebrow reveal">Valiz kontrol</div>
       <h2 class="serif section-title reveal d1">Bir şey unutma!</h2>
-      <p class="section-lead reveal d2">Hazırladıklarını işaretle. Listende olmayanları her kategorinin altından ekleyebilirsin.</p>
+      <p class="section-lead reveal d2">Hazırladıklarını işaretle, yüzde 100 olunca valizi kapat.</p>
     </div>
     <div class="wrap">
       <div class="progress-card reveal">
@@ -578,7 +578,6 @@
         <div class="day reveal d3" data-date="2027-05-18"><div class="dnum">18</div><div class="dname">Salı</div><h3>🏰 Alanya turu</h3><p>Alanya Kalesi, teleferik, Damlataş Mağarası, Kleopatra Plajı.</p></div>
         <div class="day reveal" data-date="2027-05-19"><div class="dnum">19</div><div class="dname">Çarşamba</div><h3>🏠 Dönüş</h3><p>Son kahvaltı, son kaydırak, son fotoğraf. Eve dönüş.</p></div>
       </div>
-      <div class="plan-note">taslak plan, değişebilir 😉</div>
     </div>
   </section>
 
@@ -906,11 +905,7 @@
             <input type="checkbox" data-key="${esc(itemKey(cat.id, x.t))}" ${state.checked[itemKey(cat.id, x.t)] ? "checked" : ""} />
             <span class="txt">${esc(x.t)}</span>
             ${x.c ? `<button type="button" class="del" data-cat="${cat.id}" data-text="${esc(x.t)}" aria-label="Sil">×</button>` : ""}
-          </label>`).join("")}
-        <form class="add-row" data-cat="${cat.id}">
-          <input type="text" maxlength="60" placeholder="Başka bir şey ekle…" aria-label="${esc(cat.title)} kategorisine ekle" />
-          <button type="submit" aria-label="Ekle">+</button>
-        </form>`;
+          </label>`).join("")}`;
       grid.appendChild(box);
     });
     updateProgress();
@@ -976,7 +971,7 @@
     if(again) again.focus();
   });
   $("resetBtn").addEventListener("click", () => {
-    if(!confirm("Tüm işaretler ve eklediğin maddeler silinsin mi?")) return;
+    if(!confirm("Tüm işaretler silinsin mi?")) return;
     state = { checked:{}, custom:{} };
     saveState(); render();
   });
